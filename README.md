@@ -35,6 +35,15 @@ wanna contribute? thanks! to start contributing, you have to [fork this repo](ht
   </picture>
 </a>
 
+## Roadmap
+right now, this is what i'm planning to do:
+
+- [ ] 💾 decrease docker image size (current is ~250mb)
+- [ ] 🤖 maybe setup bot languages? might take alot of space tho
+- [ ] ❓ organize the functions of the egg, current egg is kinda hard to understand in my opinion
+- [ ] ⌨️ don't make the startup tab filled with admin only variables, maybe like a .json file that people can host themselves?
+- [ ] 🔒 lock server softwares that hostings may not need
+
 ## Credits
 this project wouldn't have been possible without theses projects:\
 Primectyl (closed src): provided some bases of how software install works, basically what inspired me to make my own multiegg\
