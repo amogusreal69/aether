@@ -546,6 +546,7 @@ function main {
     while true; do
         clear
         display
+        mkdir -p system
         if [[ "$ENABLE_RULES" == "1" ]]; then
             rules
         fi
