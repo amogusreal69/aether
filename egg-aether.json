@@ -1,0 +1,132 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v2",
+        "update_url": null
+    },
+    "exported_at": "2025-11-12T14:48:23+01:00",
+    "name": "aether",
+    "author": "hi@amogusreal.tech",
+    "description": "\ud83d\ude80 a multiegg that's free and open-source",
+    "features": null,
+    "docker_images": {
+        "aether Latest": "ghcr.io\/lonersoft\/aether:main"
+    },
+    "file_denylist": [],
+    "startup": ".\/entrypoint.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \")! For help, type \",\r\n    \"userInteraction\": [\r\n        \"Go to eula.txt for more info.\"\r\n    ]\r\n}",
+        "logs": "{}",
+        "stop": "stop"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\necho \ud83d\ude80 hi :D",
+            "container": "alpine:3.4",
+            "entrypoint": "ash"
+        }
+    },
+    "variables": [
+        {
+            "name": "Java Version",
+            "description": "The default Java version.",
+            "env_variable": "JAVA_VERSION",
+            "default_value": "21",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|in:25,24,23,21,17,11,8",
+            "field_type": "text"
+        },
+        {
+            "name": "Additional Arguments",
+            "description": "Additional arguments to insert in the start command, such as for Java. Do not change this variable unless you know what you are doing, as this may make your server unusable.",
+            "env_variable": "STARTUP_ARGUMENT",
+            "default_value": "",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "nullable|string|regex:\/^(?!.*xmx)(?!.*xms).*$\/i",
+            "field_type": "text"
+        },
+        {
+            "name": "Vanilla Bedrock Dedicated Server Version",
+            "description": "If you are using Vanilla Bedrock, set the version of the server here. You can grab it here: https:\/\/www.minecraft.net\/en-us\/download\/server\/bedrock. For example, if the server link is https:\/\/www.minecraft.net\/bedrockdedicatedserver\/bin-linux\/bedrock-server-1.21.114.1.zip, you would put in this variable: 1.21.114.1",
+            "env_variable": "BEDROCK_VERSION",
+            "default_value": "1.21.114.1",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|string|regex:\/^[0-9.]+$\/|max:15",
+            "field_type": "text"
+        },
+        {
+            "name": "Discord URL (ADMIN ONLY)",
+            "description": "Your Discord Server Invite Code. Does not change the MOTD URL. If for example your Discord Server is located at discord.gg\/valorant, put \"valorant\" here.",
+            "env_variable": "DISCORD_LINK",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "nullable|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Email (ADMIN ONLY)",
+            "description": "Your support email, shown below the Discord URL Link.",
+            "env_variable": "EMAIL",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "nullable|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Hosting Name (ADMIN ONLY)",
+            "description": "Your hosting name. Required for forced MOTD to work.",
+            "env_variable": "HOSTING_NAME",
+            "default_value": "aether",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|string",
+            "field_type": "text"
+        },
+        {
+            "name": "Enable Forced MOTD (ADMIN ONLY)",
+            "description": "A switch to enable the Forced MOTD feature in aether. Requires Discord URL and Hosting Name to be set.",
+            "env_variable": "ENABLE_FORCED_MOTD",
+            "default_value": "0",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Optimize Server (ADMIN ONLY)",
+            "description": "This switch enables the optimization feature for Minecraft: Java Edition servers using a custom Hibernation plugin. By enabling this option, you agree that this egg contacts GitHub to pull the latest version.",
+            "env_variable": "OPTIMIZE_SERVER",
+            "default_value": "0",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "Enable Rules (ADMIN ONLY)",
+            "description": "A switch to enable the built-in rules in aether. For more information, please check the documentation.",
+            "env_variable": "ENABLE_RULES",
+            "default_value": "0",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "required|boolean",
+            "field_type": "text"
+        },
+        {
+            "name": "MCJars API Key (ADMIN ONLY)",
+            "description": "Your MCJars API Key, not required.",
+            "env_variable": "MCJARS_API_KEY",
+            "default_value": "",
+            "user_viewable": false,
+            "user_editable": false,
+            "rules": "nullable|string|size:64",
+            "field_type": "text"
+        }
+    ]
+}

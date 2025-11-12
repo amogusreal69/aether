@@ -553,11 +553,8 @@ function main {
         echo -e "\e[36m🎮  Select the server type:\e[0m"
         echo -e "\e[32m1\e[0m) Minecraft: Java Edition\e[0m"
         echo -e "\e[32m2\e[0m) Minecraft: Bedrock Edition\e[0m"
-        echo -e "\e[32m3\e[0m) Minecraft: Java Edition (Modded)\e[0m"
         echo -e "\e[32m4\e[0m) Minecraft Proxies\e[0m"
-        echo -e "\e[32m5\e[0m) Other Games\e[0m"
-        echo -e "\e[32m6\e[0m) Discord Bots"
-        echo -e "\e[31m7\e[0m) Exit"
+        echo -e "\e[31m5\e[0m) Exit"
         read -p "$(echo -e '\e[33mYour choice:\e[0m') " type
 
         case $type in
@@ -567,23 +564,11 @@ function main {
         2)
             bedrock_menu
             ;;
-        3)
-            echo -e "\e[1;31m[ERROR] \e[0;31mThis server type is locked behind Premium. Please order a server plan to access it.\e[0m"
-            exit 0
-            ;;
         4)
-            echo -e "\e[1;31m[ERROR] \e[0;31mThis server type is locked behind Premium. Please order a server plan to access it.\e[0m"
+            echo -e "\e[1;31m[ERROR] \e[0;31mThis server type has currently not been implemented. Please try again later.\e[0m"
             exit 0
             ;;
         5)
-            echo -e "\e[1;31m[ERROR] \e[0;31mThis server type is locked behind Premium. Please order a server plan to access it.\e[0m"
-            exit 0
-            ;;
-        6)
-            echo -e "\e[1;31m[ERROR] \e[0;31mThis server type is locked behind Premium. Please order a server plan to access it.\e[0m"
-            exit 0
-            ;;
-        7)
             echo -e "\e[31m● Exiting the script. Goodbye!\e[0m"
             exit 0
             ;;
