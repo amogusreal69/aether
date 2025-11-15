@@ -1,0 +1,3 @@
+testing/*
+!testing/script.sh
+!testing/readme.md

@@ -19,10 +19,7 @@ RUN apt update -y && \
         unzip \
         jq \
         coreutils \
-        figlet \
-        lolcat \
         toilet \
-        wget \
         software-properties-common && \
     adduser --disabled-password --home /home/container container
 
