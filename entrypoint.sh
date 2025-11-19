@@ -242,16 +242,16 @@ function install_java {
     sdk selfupdate
     case "$JAVA_VERSION" in
     8)
-        JAVA_VERSION_S="8.0.462-tem"
+        JAVA_VERSION_S="8.0.472-tem"
         ;;
     11)
-        JAVA_VERSION_S="11.0.28-tem"
+        JAVA_VERSION_S="11.0.29-tem"
         ;;
     17)
-        JAVA_VERSION_S="17.0.16-tem"
+        JAVA_VERSION_S="17.0.17-tem"
         ;;
     21)
-        JAVA_VERSION_S="21.0.8-tem"
+        JAVA_VERSION_S="21.0.9-tem"
         ;;
     23)
         JAVA_VERSION_S="23.0.2-tem"
@@ -260,7 +260,7 @@ function install_java {
         JAVA_VERSION_S="24.0.2-tem"
         ;;
     25)
-        JAVA_VERSION_S="25-tem"
+        JAVA_VERSION_S="25.0.1-tem"
         ;;
     *)
         echo -e "\e[1;31m[ERROR] \e[0;31mOops! You met an error that occurred while installing Java.\e[0m"
