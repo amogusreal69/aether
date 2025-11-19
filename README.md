@@ -5,13 +5,14 @@ A simple multiegg that's highly configurable (in my opinion), ~~that's paid~~ al
 aether is a multiegg designed to simply server management for hosting providers. Currently, it only supports Minecraft, but more may come soon.
 
 > [!WARNING]  
-> aether is still in it's early stages! right now, the Minecraft Proxies option is not assigned to anything, so it doesn't work anymore, and there may be more bugs that I didn't catch! if any bugs occur, please report it via [GitHub Issues](https://github.com/lonersoft/aether/issues/new), thanks! :3
+> while aether is in a stable state, it is still beta software! if any bugs occur, please report it via [GitHub Issues](https://github.com/lonersoft/aether/issues/new), thanks! :3
 
 ## 🧩 Features
 there's not alot of impressive features, but some of them might be useful such as:
 * built-in rules: when enabled, the first boot of a server will show them rules to comply with a confirmation
 * set MCJars API Key: track some stats like the total requests, and even block some server software from there!
 * forced MOTD: put your hosting name on their server's MOTD! this does not block plugins that interact with the MOTD such as [MiniMOTD](https://modrinth.com/plugin/minimotd) or [AdvancedServerList](https://modrinth.com/plugin/advancedserverlist)
+* custom logo: need the banner to be purple? or something else to match your branding? [head here to get a free custom banner!](#%EF%B8%8F-hostings-that-use-aether) your hosting will also be on the list
 
 any ideas you may wanna see? [create an issue!](https://github.com/lonersoft/aether/issues/new)
 
