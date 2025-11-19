@@ -75,10 +75,10 @@ check_aether_updates() {
     
     echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mChecking for updates... this may take a while\e[0m"
     
-    # Fetch latest release version from GitHub
-    local latest_version=$(curl -s --max-time 5 --connect-timeout 5 "$github_api_url" 2>/dev/null | grep -oP '"tag_name": "\K(.*)(?=")')
+    # Fetch latest release version from GitHub using jq
+    local latest_version=$(curl -s --max-time 5 --connect-timeout 5 "$github_api_url" 2>/dev/null | jq -r '.tag_name' 2>/dev/null)
     
-    if [ -z "$latest_version" ]; then
+    if [ -z "$latest_version" ] || [ "$latest_version" == "null" ]; then
         echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mUnable to check for updates (network issue).\e[0m"
         return
     fi
