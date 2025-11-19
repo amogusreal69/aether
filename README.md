@@ -67,6 +67,7 @@ this project wouldn't have been possible without theses projects:\
 Primectyl (closed src): provided some bases of how software install works, basically what inspired me to make my own multiegg\
 [Pterodactyl](https://pterodactyl.io/): the game panel everyone loves! it is a free, open-source game server management panel built with PHP, React, and Go.\
 [MCJars](https://mcjars.app): the place where we get the server.jar's, i love the service\
+[MC JAR FILES](https://mcjarfiles.com/): the place where we get the bedrock vanilla dedicated servers, god i love this service 💖\
 and some that i forgot! my bad :(
 
 ## 📄 Licensing
