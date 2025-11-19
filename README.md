@@ -1,4 +1,4 @@
-# 🥚 aether
+# 🥚 aether [![wakatime](https://wakatime.com/badge/github/lonersoft/aether.svg)](https://wakatime.com/badge/github/lonersoft/aether)
 
 A simple multiegg that's highly configurable (in my opinion), ~~that's paid~~ all for free and open source!
 
