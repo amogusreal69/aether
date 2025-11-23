@@ -56,7 +56,7 @@ right now, this is what i'm planning to do:
 
 - [ ] 💾 decrease docker image size (current is ~250mb)
 - [ ] 🤖 maybe setup bot languages? might take alot of space tho
-- [ ] ❓ organize the functions of the egg, current egg is kinda hard to understand in my opinion
+- [x] ❓ organize the functions of the egg, current egg is kinda hard to understand in my opinion
 - [ ] ⌨️ don't make the startup tab filled with admin only variables, maybe like a .json file that people can host themselves?
 - [ ] 🔒 lock server softwares that hostings may not need
 - [ ] ➕ enable ability to change rules
