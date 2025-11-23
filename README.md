@@ -29,8 +29,6 @@ aether is free and open-source software. To host this egg, alot of resources and
 4. ???
 5. profit
 
-need to test aether? there is a directory named [`📂 /testing`](/testing) for testing the egg on a Ubuntu environment. check it out i guess?
-
 ## 🖥️ Hostings that use aether
 | Hostings                                    | About                                                                                                                                        | Custom banner? | Notes    |
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-----|---------------------|
@@ -58,7 +56,7 @@ right now, this is what i'm planning to do:
 
 - [ ] 💾 decrease docker image size (current is ~250mb)
 - [ ] 🤖 maybe setup bot languages? might take alot of space tho
-- [ ] ❓ organize the functions of the egg, current egg is kinda hard to understand in my opinion
+- [x] ❓ organize the functions of the egg, current egg is kinda hard to understand in my opinion
 - [ ] ⌨️ don't make the startup tab filled with admin only variables, maybe like a .json file that people can host themselves?
 - [ ] 🔒 lock server softwares that hostings may not need
 - [ ] ➕ enable ability to change rules

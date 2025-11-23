@@ -1,0 +1,78 @@
+#!/bin/bash
+
+function proxy_menu {
+    while true; do
+        echo -e "\e[1;36m \e[0m"
+        echo -e "\e[1;36m \e[0m"
+        echo -e '\e[38;2;255;165;0m[WARNING] \e[38;5;250mThis feature is relatively new and may have some issues. Please report any issues to https://github.com/lonersoft/aether/issues.\e[0m'
+        echo -e "\e[36m🖥️  Select your Proxy server:\e[0m"
+        echo -e "\e[32m1\e[0m) Bungeecord\e[0m"
+        echo -e "\e[32m2\e[0m) Velocity\e[0m"
+        echo -e "\e[32m3\e[0m) Waterfall\e[0m"
+        echo -e "\e[31m4\e[0m) Back\e[0m"
+
+        read -p "$(echo -e '\e[33mYour choice:\e[0m') " proxy
+
+        case $proxy in
+        1)
+            echo -e "\e[1;36m \e[0m"
+            echo -e "\e[1;36m \e[0m"
+            echo -e '\e[38;2;255;165;0m[WARNING] \e[38;5;250mBungeeCord versions below 1.16 are not shown here due to them being old.\e[0m'
+            echo -e "\e[36m🔧  Select the Bungeecord version you want to use:\e[0m"
+            echo -e "\e[32m→ 1.16, 1.17, 1.18, 1.19, 1.20, 1.21\e[0m"
+            read -p "$(echo -e '\e[33mYour choice:\e[0m') " input_version
+            valid_versions="1.16 1.17 1.18 1.19 1.20 1.21"
+
+            # Check if the input version is in the list of valid versions
+            if [[ $valid_versions =~ (^|[[:space:]])$input_version($|[[:space:]]) ]]; then
+                bungeecord="$input_version"
+                prompt_eula_mc
+                install_bungeecord
+            else
+               echo -e "\e[1;31m[ERROR] \e[0;31mThe specified version is either invalid or deprecated.\e[0m"
+            fi
+            ;;
+        2)
+            echo -e "\e[1;36m \e[0m"
+            echo -e "\e[1;36m \e[0m"
+            echo -e "\e[36m🔧  Select the Velocity version you want to use:\e[0m"
+            echo -e "\e[32m→ 3.1.0, 3.1.1-SNAPSHOT, 3.1.1, 3.1.2-SNAPSHOT, 1.0.10, 1.1.9, 3.2.0-SNAPSHOT, 3.3.0-SNAPSHOT, 3.4.0-SNAPSHOT\e[0m"
+            read -p "$(echo -e '\e[33mYour choice:\e[0m') " input_version
+            valid_versions="3.1.0 3.1.1-SNAPSHOT 3.1.1 3.1.2-SNAPSHOT 1.0.10 1.1.9 3.2.0-SNAPSHOT 3.3.0-SNAPSHOT 3.4.0-SNAPSHOT"
+
+            # Check if the input version is in the list of valid versions
+            if [[ $valid_versions =~ (^|[[:space:]])$input_version($|[[:space:]]) ]]; then
+                velocity="$input_version"
+                prompt_eula_mc
+                install_velocity
+            else
+               echo -e "\e[1;31m[ERROR] \e[0;31mThe specified version is either invalid or deprecated.\e[0m"
+            fi
+            ;;
+        3)
+            echo -e "\e[1;36m \e[0m"
+            echo -e "\e[1;36m \e[0m"
+            echo -e '\e[38;2;255;165;0m[WARNING] \e[38;5;250mKeep in mind, Waterfall is deprecated and may not work as expected. Take backups!\e[0m'
+            echo -e "\e[36m🔧  Select the Waterfall version you want to use:\e[0m"
+            echo -e "\e[32m→ 1.11, 1.12, 1.13, 1.14, 1.15, 1.16, 1.17, 1.18, 1.19, 1.20, 1.21\e[0m"
+            read -p "$(echo -e '\e[33mYour choice:\e[0m') " input_version
+            valid_versions="1.11 1.12 1.13 1.14 1.15 1.16 1.17 1.18 1.19 1.20 1.21"
+
+            # Check if the input version is in the list of valid versions
+            if [[ $valid_versions =~ (^|[[:space:]])$input_version($|[[:space:]]) ]]; then
+                waterfall="$input_version"
+                prompt_eula_mc
+                install_waterfall
+            else
+               echo -e "\e[1;31m[ERROR] \e[0;31mThe specified version is either invalid or deprecated.\e[0m"
+            fi
+            ;;
+        4)
+            break
+            ;;
+        *)
+            echo -e "\e[1;31m[ERROR] \e[0;31mInvalid choice. Please try again.\e[0m"
+            ;;
+        esac
+    done
+}
