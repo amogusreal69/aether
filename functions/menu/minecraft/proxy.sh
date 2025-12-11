@@ -4,7 +4,6 @@ function proxy_menu {
     while true; do
         echo -e "\e[1;36m \e[0m"
         echo -e "\e[1;36m \e[0m"
-        echo -e '\e[38;2;255;165;0m[WARNING] \e[38;5;250mThis feature is relatively new and may have some issues. Please report any issues to https://github.com/lonersoft/aether/issues.\e[0m'
         echo -e "\e[36m🖥️  Select your Proxy server:\e[0m"
         echo -e "\e[32m1\e[0m) Bungeecord\e[0m"
         echo -e "\e[32m2\e[0m) Velocity\e[0m"
