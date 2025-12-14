@@ -9,7 +9,7 @@ function install_java {
         exit 1
     fi
     if [ ! -d "$HOME/.sdkman" ]; then
-        curl -s "https://get.sdkman.io" | bash
+        curl -v "https://get.sdkman.io" | bash
     fi
     source "$HOME/.sdkman/bin/sdkman-init.sh"
     sdk update >/dev/null 2>&1
