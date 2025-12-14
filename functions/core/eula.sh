@@ -11,12 +11,12 @@ function prompt_eula_mc {
     accept_eula_input=$(echo "$accept_eula_input" | tr '[:upper:]' '[:lower:]') # Convert to lowercase
     if [[ "$accept_eula_input" == *y* || "$accept_eula_input" == *yes* ]]; then
         echo "eula=true" >"$eula_file"
-        echo -e "\033[92m● You have agreed to the EULA. Starting installation...\e[0m"
+        printout success "You have agreed to the EULA. Starting installation..."
     elif [[ "$accept_eula_input" == *eula* ]]; then
-        echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mThe EULA can be found at https://www.minecraft.net/eula.\e[0m"
+        printout info "The EULA can be found at https://www.minecraft.net/eula."
         prompt_eula_mc
     else
-        echo -e "\e[1;31m[ERROR] \e[0;31mYou have not agreed to the EULA. Exiting...\e[0m"
+        printout error "You have not agreed to the EULA. Exiting..."
         exit 1
     fi
 }

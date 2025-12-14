@@ -4,7 +4,7 @@ function rules {
     accept_rules_file="system/rulesagreed"
 
     if [ -f "$accept_rules_file" ]; then
-        echo -e "\033[92m● Rules already accepted. Continuing...\e[0m"
+        printout success "Rules already accepted. Continuing..."
         echo -e "\e[1;36m \e[0m"
         return
     fi
@@ -29,10 +29,10 @@ function rules {
     if [[ "$accept_rules" == *y* || "$accept_rules" == *yes* ]]; then
         mkdir -p "system"
         touch "$accept_rules_file"
-        echo -e "\033[92m● Rules has been accepted. Starting installation...\e[0m"
+        printout success "Rules has been accepted. Starting installation..."
         echo -e "\e[1;36m \e[0m"
     else
-        echo -e "\e[1;31m[ERROR] \e[0;31mYou must accept to our rules to use this server! Exiting...\e[0m"
+        printout error "You must accept to our rules to use this server! Exiting..."
         exit 1
     fi
 }

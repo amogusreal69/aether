@@ -15,15 +15,15 @@ function display {
         toilet -f "smblock" --filter gay "$HOSTING_NAME" -w 200
     fi
     echo -e "\e[1;36m \e[0m"
-    echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mwanna suggest a new server software? create an issue here:\e[0m"
-    echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mhttps://github.com/lonersoft/aether/issues/new?template=software-addition.yml\e[0m"
+    printout info "wanna suggest a new server software? create an issue here:"
+    printout info "https://github.com/lonersoft/aether/issues/new?template=software-addition.yml"
     echo -e "\e[1;36m \e[0m"
     if [ -n "$DISCORD_LINK" ] || [ -n "$EMAIL" ]; then
         if [ -n "$DISCORD_LINK" ]; then
-            echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mDiscord: https://discord.gg/$DISCORD_LINK\e[0m"
+            printout info "Discord: https://discord.gg/$DISCORD_LINK"
         fi
         if [ -n "$EMAIL" ]; then
-            echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250mEmail: $EMAIL\e[0m"
+            printout info "Email: $EMAIL"
         fi
         echo -e "\e[1;36m \e[0m"
     fi
