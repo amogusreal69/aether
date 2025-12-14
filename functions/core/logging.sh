@@ -5,19 +5,19 @@ function printout {
     
     case "$1" in
     error)
-        echo -e "\e[1;31m[ERROR] \e[0;31m${message}\e[0m"
+        echo -e "\e[30;41;1m[ERROR]\e[0m ${message}"
         ;;
     info)
-        echo -e "\e[38;2;129;170;254m[INFO] \e[38;5;250m${message}\e[0m"
+        echo -e "\e[30;44;1m[INFO]\e[0m ${message}"
         ;;
     warning)
-        echo -e "\e[38;2;255;165;0m[WARNING] \e[38;5;250m${message}\e[0m"
+        echo -e "\e[30;43;1m[WARNING]\e[0m ${message}"
         ;;
     success)
-        echo -e "\e[92m● ${message}\e[0m"
+        echo -e "\e[30;42;1m[SUCCESS]\e[0m ${message}"
         ;;
     solution)
-        echo -e "\e[1;34m[SOLUTION] \e[0;34m${message}\e[0m"
+        echo -e "\e[30;46;1m[SOLUTION]\e[0m ${message}"
         ;;
     *)
         echo "${message}"
