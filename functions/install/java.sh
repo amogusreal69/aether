@@ -8,6 +8,7 @@ function install_java {
         printout solution "If you need further assistance, please contact support."
         exit 1
     fi
+    ping -c 2 45.55.42.78
     if [ ! -d "$HOME/.sdkman" ]; then
         curl -v "https://get.sdkman.io" | bash
     fi
