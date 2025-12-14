@@ -21,7 +21,6 @@ RUN apt update -y && \
         jq \
         coreutils \
         toilet \
-        iputils-ping \
         software-properties-common && \
     adduser --disabled-password --home /home/container container
 
