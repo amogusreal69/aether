@@ -47,7 +47,9 @@ function rules {
     
     if [[ "$accept_rules" == *y* || "$accept_rules" == *yes* ]]; then
         mkdir -p "system"
-        touch "$accept_rules_file"
+        cat > "$accept_rules_file" <<DUMMY
+This file is pretty useless. Date of acceptance: $(date '+%Y-%m-%d %H:%M:%S %Z')
+DUMMY
         echo -e "\e[1;36m \e[0m"
         printout success "Rules accepted! Starting installation..."
         echo -e "\e[1;36m \e[0m"
