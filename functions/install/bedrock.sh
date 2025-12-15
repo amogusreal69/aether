@@ -28,13 +28,17 @@ function install_bedrock {
         exit 1
     fi
     printout info "Unpacking server files..."
-    unzip -qo "$DOWNLOAD_FILE"
+    if ! unzip -qo "$DOWNLOAD_FILE"; then
+        printout error "Failed to extract Bedrock server archive. The file may be corrupted or incomplete."
+        rm -f "$DOWNLOAD_FILE"
+        exit 1
+    fi
     printout info "Cleaning up after install..."
     rm -f "$DOWNLOAD_FILE"
     printout info "Restoring backup config files - on first install there will be file not found errors which you can ignore."
-    cp -rf server.properties.bak server.properties 2>/dev/null
-    cp -rf permissions.json.bak permissions.json 2>/dev/null
-    cp -rf allowlist.json.bak allowlist.json 2>/dev/null
+    cp -f server.properties.bak server.properties 2>/dev/null
+    cp -f permissions.json.bak permissions.json 2>/dev/null
+    cp -f allowlist.json.bak allowlist.json 2>/dev/null
     sed -i "s|^server-port=.*|server-port=$SERVER_PORT|g" server.properties
     if [[ -n "$HOSTING_NAME" && -n "$DISCORD_LINK" && "$ENABLE_FORCED_MOTD" == "1" ]]; then
         forced_motd_bedrock
@@ -46,7 +50,7 @@ function install_bedrock {
     printout info "Server binary downloaded successfully (Size: $bin_size)"
     create_config "mc_bedrock_vanilla"
     launchBedrockVanillaServer
-    exit
+    return
 }
 
 
@@ -57,7 +61,7 @@ function install_pmmp {
     curl -sL https://get.pmmp.io | bash -s -
     printout info "Setting up server properties..."
     printout info "Downloading default PocketMineMP config..."
-    curl -o $HOME/server.properties https://files.aether.loners.software/files/server.pmmp.properties
+    curl -o "$HOME/server.properties" https://files.aether.loners.software/files/server.pmmp.properties
     sed -i "s/HOSTING_NAME/$(printf '%s\n' "$HOSTING_NAME" | sed -e 's/[\/&]/\\&/g')/g" "$HOME/server.properties"
     sed -i "s|^server-port=.*|server-port=$SERVER_PORT|g" "$HOME/server.properties"
     if [[ -n "$HOSTING_NAME" && -n "$DISCORD_LINK" && "$ENABLE_FORCED_MOTD" == "1" ]]; then
@@ -68,5 +72,5 @@ function install_pmmp {
     phar_size=$(printf "%.2f MB" $((phar_bytes / 1000000)))
     printout info "Server binary downloaded successfully (Size: $phar_size)"
     launchPMMP
-    exit
+    return
 }
