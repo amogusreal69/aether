@@ -8,7 +8,7 @@ function install_bungeecord {
         jar_url=$(curl --silent --request GET --url "https://versions.mcjars.app/api/v2/builds/BUNGEECORD/$bungeecord" | jq -r '.builds[0].jarUrl')
     fi
     curl -o server.jar "$jar_url"
-    create_config "mc_java_bungeecord"
+    create_config "mc_proxy_bungeecord"
     cat <<EOF >config.yml
 listeners:
   - query_port: $SERVER_PORT
@@ -32,8 +32,14 @@ function install_velocity {
     curl -o server.jar "$jar_url"
     create_config "mc_proxy_velocity"
     printout info "Downloading default Velocity config..."
-    curl -o $HOME/velocity.toml https://files.aether.loners.software/files/velocity.toml
-    sed -i "s/serverport/$SERVER_PORT/g" "$HOME/velocity.toml"
+    if ! curl -o "$HOME/velocity.toml" https://files.aether.loners.software/files/velocity.toml; then
+        printout error "Failed to download Velocity configuration file."
+        exit 1
+    fi
+    if ! sed -i "s/serverport/$SERVER_PORT/g" "$HOME/velocity.toml"; then
+        printout error "Failed to update Velocity configuration with server port."
+        exit 1
+    fi
     jar_bytes=$(stat -c%s server.jar 2>/dev/null || stat -f%z server.jar 2>/dev/null)
     jar_size=$(printf "%.2f MB" $((jar_bytes / 1000000)))
     printout info "Server jar downloaded successfully (Size: $jar_size)"

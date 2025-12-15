@@ -72,9 +72,13 @@ function install_java {
 function install_paper {
     printout info "Downloading Paper Server..."
     if [ -n "$MCJARS_API_KEY" ]; then
-        jar_url=$(curl --silent --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/PAPER/$paper" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/PAPER/$paper" | jq -r '.builds[0].jarUrl')
     else
-        jar_url=$(curl --silent --request GET --url "https://versions.mcjars.app/api/v2/builds/PAPER/$paper" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --url "https://versions.mcjars.app/api/v2/builds/PAPER/$paper" | jq -r '.builds[0].jarUrl')
+    fi
+    if [ -z "$jar_url" ] || [ "$jar_url" == "null" ]; then
+        printout error "Failed to fetch Paper Server jar URL. Please check your version selection and try again."
+        exit 1
     fi
     curl -o server.jar "$jar_url"
     jar_bytes=$(stat -c%s server.jar 2>/dev/null || stat -f%z server.jar 2>/dev/null)
@@ -90,9 +94,13 @@ function install_paper {
 function install_pufferfish {
     printout info "Downloading Pufferfish Server..."
     if [ -n "$MCJARS_API_KEY" ]; then
-        jar_url=$(curl --silent --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/PUFFERFISH/$pufferfish" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/PUFFERFISH/$pufferfish" | jq -r '.builds[0].jarUrl')
     else
-        jar_url=$(curl --silent --request GET --url "https://versions.mcjars.app/api/v2/builds/PUFFERFISH/$pufferfish" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --url "https://versions.mcjars.app/api/v2/builds/PUFFERFISH/$pufferfish" | jq -r '.builds[0].jarUrl')
+    fi
+    if [ -z "$jar_url" ] || [ "$jar_url" == "null" ]; then
+        printout error "Failed to fetch Pufferfish Server jar URL. Please check your version selection and try again."
+        exit 1
     fi
     curl -o server.jar "$jar_url"
     jar_bytes=$(stat -c%s server.jar 2>/dev/null || stat -f%z server.jar 2>/dev/null)
@@ -108,9 +116,13 @@ function install_pufferfish {
 function install_purpur {
     printout info "Downloading Purpur Server..."
     if [ -n "$MCJARS_API_KEY" ]; then
-        jar_url=$(curl --silent --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/PURPUR/$purpur" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/PURPUR/$purpur" | jq -r '.builds[0].jarUrl')
     else
-        jar_url=$(curl --silent --request GET --url "https://versions.mcjars.app/api/v2/builds/PURPUR/$purpur" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --url "https://versions.mcjars.app/api/v2/builds/PURPUR/$purpur" | jq -r '.builds[0].jarUrl')
+    fi
+    if [ -z "$jar_url" ] || [ "$jar_url" == "null" ]; then
+        printout error "Failed to fetch Purpur Server jar URL. Please check your version selection and try again."
+        exit 1
     fi
     curl -o server.jar "$jar_url"
     jar_bytes=$(stat -c%s server.jar 2>/dev/null || stat -f%z server.jar 2>/dev/null)
@@ -126,9 +138,13 @@ function install_purpur {
 function install_vanilla {
     printout info "Downloading Vanilla Server..."
     if [ -n "$MCJARS_API_KEY" ]; then
-        jar_url=$(curl --silent --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/VANILLA/$vanilla" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --header "Authorization: $MCJARS_API_KEY" --url "https://versions.mcjars.app/api/v2/builds/VANILLA/$vanilla" | jq -r '.builds[0].jarUrl')
     else
-        jar_url=$(curl --silent --request GET --url "https://versions.mcjars.app/api/v2/builds/VANILLA/$vanilla" | jq -r '.builds[0].jarUrl')
+        jar_url=$(curl --silent --fail --request GET --url "https://versions.mcjars.app/api/v2/builds/VANILLA/$vanilla" | jq -r '.builds[0].jarUrl')
+    fi
+    if [ -z "$jar_url" ] || [ "$jar_url" == "null" ]; then
+        printout error "Failed to fetch Vanilla Server jar URL. Please check your version selection and try again."
+        exit 1
     fi
     curl -o server.jar "$jar_url"
     jar_bytes=$(stat -c%s server.jar 2>/dev/null || stat -f%z server.jar 2>/dev/null)

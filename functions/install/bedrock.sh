@@ -52,13 +52,13 @@ function install_bedrock {
 
 function install_pmmp {
     printout info "Starting installation of PocketMineMP..."
-    cd $HOME
+    cd "$HOME" || { printout error "Failed to change to home directory."; exit 1; }
     printout info "Running installation script from: get.pmmp.io"
     curl -sL https://get.pmmp.io | bash -s -
     printout info "Setting up server properties..."
     printout info "Downloading default PocketMineMP config..."
     curl -o $HOME/server.properties https://files.aether.loners.software/files/server.pmmp.properties
-    sed -i "s/HOSTING_NAME/$HOSTING_NAME/g" "$HOME/server.properties"
+    sed -i "s/HOSTING_NAME/$(printf '%s\n' "$HOSTING_NAME" | sed -e 's/[\/&]/\\&/g')/g" "$HOME/server.properties"
     sed -i "s|^server-port=.*|server-port=$SERVER_PORT|g" "$HOME/server.properties"
     if [[ -n "$HOSTING_NAME" && -n "$DISCORD_LINK" && "$ENABLE_FORCED_MOTD" == "1" ]]; then
         forced_motd
