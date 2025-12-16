@@ -15,6 +15,7 @@ check_aether_updates() {
     
     if [ -z "$latest_version" ] || [ "$latest_version" == "null" ]; then
         printout info "Unable to check for updates (network issue)."
+        echo -e "\e[1;36m \e[0m"
         return
     fi
 
@@ -30,8 +31,8 @@ check_aether_updates() {
     latest_version=${latest_version#v}
     
     if [ "$AETHER_VERSION" != "$latest_version" ]; then
-        echo -e "\e[33m⚠️  A new version of aether is available: v$latest_version (current: v$AETHER_VERSION)\e[0m"
-        echo -e "\e[33m   Download: https://github.com/lonersoft/aether/releases/latest\e[0m"
+        printout warning "A new version of aether is available: v$latest_version (current: v$AETHER_VERSION)\e[0m"
+        printout warning "   Download: https://github.com/lonersoft/aether/releases/latest"
         echo -e "\e[1;36m \e[0m"
     else
         printout success "aether is up to date (v$AETHER_VERSION)"

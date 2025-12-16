@@ -3,6 +3,9 @@
 function launchJavaServer {
     printout info "Checking if Java is up to date..."
     install_java
+    if [[ "$AUTOMATIC_UPDATING" == "1" ]]; then
+        update_server
+    fi
     optimize_server
     if [[ -n "$HOSTING_NAME" && -n "$DISCORD_LINK" && "$ENABLE_FORCED_MOTD" == "1" ]]; then
         forced_motd
@@ -15,6 +18,9 @@ function launchJavaServer {
 function launchVanillaServer {
     printout info "Checking if Java is up to date..."
     install_java
+    if [[ "$AUTOMATIC_UPDATING" == "1" ]]; then
+        update_server
+    fi
     if [[ -n "$HOSTING_NAME" && -n "$DISCORD_LINK" && "$ENABLE_FORCED_MOTD" == "1" ]]; then
         forced_motd
     fi

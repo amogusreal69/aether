@@ -52,6 +52,7 @@ function main {
             ;;
         *)
             printout error "Invalid choice. Please try again."
+            sleep 2
             ;;
         esac
     done

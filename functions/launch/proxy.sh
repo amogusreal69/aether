@@ -3,6 +3,9 @@
 function launchProxyServer {
     printout info "Checking if Java is up to date..."
     install_java
+    if [[ "$AUTOMATIC_UPDATING" == "1" ]]; then
+        update_server
+    fi
     if [[ -n "$HOSTING_NAME" && -n "$DISCORD_LINK" && "$ENABLE_FORCED_MOTD" == "1" ]]; then
         printout warning "Forced MOTD does not work with proxy servers."
     fi
