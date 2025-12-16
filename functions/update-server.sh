@@ -2,22 +2,16 @@
 # based from https://github.com/mcjars/pterodactyl-yolks
 
 function update_server {
-    printout info "Checking for updates..."
-	echo "DEBUG: Starting update check" >&2
+    printout info "Checking for server jar updates... if this takes too long, disable automatic updating in the startup tab"
 
 	# Hash server jar file
 	if [ -z "${HASH}" ]; then
-		echo "DEBUG: Computing hash for server.jar..." >&2
 		HASH=$(sha256sum server.jar | awk '{print $1}')
-		echo "DEBUG: Hash computed: $HASH" >&2
 	fi
 
 	# Check if hash is set
 	if [ -n "${HASH}" ]; then
-		echo "DEBUG: Making API call to mcjars.app..." >&2
 		API_RESPONSE=$(curl --connect-timeout 4 -s "https://mcjars.app/api/v1/build/$HASH")
-		echo "DEBUG: API response received" >&2
-		echo "DEBUG: Response: $API_RESPONSE" >&2
 
 		# Check if .success is true
 		if [ "$(echo $API_RESPONSE | jq -r '.success')" = "true" ]; then
