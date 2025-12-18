@@ -4,7 +4,6 @@ check_aether_updates() {
     if [ "$DISABLE_UPDATES" == "1" ]; then
         printout warning "The administrator has disabled update checks. This means some features may not work as expected."
         printout warning "If you are an administrator, you can enable update checks by setting DISABLE_UPDATES to 0."
-        printout warning ""
         return
     fi
 
@@ -65,17 +64,17 @@ check_aether_updates() {
                 local days_remaining=$(( 7 - days_old ))
                 printout warning "A major version update is available: v$latest_version (current: v$AETHER_VERSION)"
                 printout warning "This version will be required in $days_remaining day(s)."
-                printout warning "   Download: https://github.com/lonersoft/aether/releases/latest"
+                printout warning "Download: https://github.com/lonersoft/aether/releases/latest"
             else
                 printout error "A required major version update is available: v$latest_version"
                 printout error "This version is now required and must be updated immediately."
-                printout error "   Download: https://github.com/lonersoft/aether/releases/latest"
+                printout error "Download: https://github.com/lonersoft/aether/releases/latest"
                 exit 1
             fi
         else
             # Minor/patch version update
             printout warning "A new version of aether is available: v$latest_version (current: v$AETHER_VERSION)"
-            printout warning "   Download: https://github.com/lonersoft/aether/releases/latest"
+            printout warning "Download: https://github.com/lonersoft/aether/releases/latest"
         fi
         echo -e "\e[1;36m \e[0m"
     else
