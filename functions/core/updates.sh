@@ -64,16 +64,19 @@ check_aether_updates() {
                 local days_remaining=$(( 7 - days_old ))
                 printout warning "A major version update is available: v$latest_version (current: v$AETHER_VERSION)"
                 printout warning "This version will be required in $days_remaining day(s)."
+                printout warning "If you are an administrator, please update the egg to get the latest features and fixes."
                 printout warning "Download: https://github.com/lonersoft/aether/releases/latest"
             else
                 printout error "A required major version update is available: v$latest_version"
                 printout error "This version is now required and must be updated immediately."
+                printout error "If you are an administrator, please update the egg to get the latest features and fixes."
                 printout error "Download: https://github.com/lonersoft/aether/releases/latest"
                 exit 1
             fi
         else
             # Minor/patch version update
             printout warning "A new version of aether is available: v$latest_version (current: v$AETHER_VERSION)"
+            printout warning "If you are an administrator, please update the egg to get the latest features and fixes."
             printout warning "Download: https://github.com/lonersoft/aether/releases/latest"
         fi
         echo -e "\e[1;36m \e[0m"
