@@ -7,7 +7,7 @@ check_aether_updates() {
 
     local github_api_url="https://api.github.com/repos/lonersoft/aether/releases/latest"
     
-    printout info "Checking for updates... this may take a while"
+    printout info "Checking for aether updates... this may take a while"
     
     # Fetch latest release version from GitHub using jq
     local latest_version
