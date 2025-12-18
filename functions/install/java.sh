@@ -88,7 +88,6 @@ function install_paper {
     create_config "mc_java_paper"
     port_assign
     printout info "Server jar downloaded successfully (Size: $jar_size)"
-    install_java
     launchJavaServer
     exit
 }
@@ -110,7 +109,6 @@ function install_pufferfish {
     create_config "mc_java_pufferfish"
     port_assign
     printout info "Server jar downloaded successfully (Size: $jar_size)"
-    install_java
     launchJavaServer
     exit
 }
@@ -132,7 +130,6 @@ function install_purpur {
     create_config "mc_java_purpur"
     port_assign
     printout info "Server jar downloaded successfully (Size: $jar_size)"
-    install_java
     launchJavaServer
     exit
 }
@@ -154,7 +151,6 @@ function install_vanilla {
     create_config "mc_java_vanilla"
     port_assign
     printout info "Server jar downloaded successfully (Size: $jar_size)"
-    install_java
     launchVanillaServer
     exit
 }
