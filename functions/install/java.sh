@@ -59,10 +59,12 @@ function install_java {
         printout info "Installing Java $JAVA_VERSION_S..."
         if [ -n "$(sdk current java)" ]; then
             OLD_VERSION=$(sdk current java | awk '{print $4}')
+            echo "y" | sdk install java "$JAVA_VERSION_S"
             printout info "Removing old Java version $OLD_VERSION..."
             sdk uninstall java "$OLD_VERSION"
+        else
+            sdk install java "$JAVA_VERSION_S"
         fi
-        sdk install java "$JAVA_VERSION_S"
         printout info "Java $JAVA_VERSION_S installed successfully."
     fi
     export JAVA_HOME="$HOME/.sdkman/candidates/java/$JAVA_VERSION_S"
